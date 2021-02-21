@@ -1,0 +1,25 @@
+<h1>Ejercicio 2 - Ingeniería Web</h1>
+
+<div class="container">Introduzca la cadena:
+	<input type="string" class="form-control" min="0" [(ngModel)]="cadena">
+</div>
+
+<div class="container">
+	<input type="hidden" #selection>
+	<button (click)="selection.value = '1'" tabindex="0">
+	<span>Inversa</span>
+	</button>
+	<button (click)="selection.value = '2'" tabindex="0">
+	<span>Elementos pares</span>
+	</button>
+	<button (click)="selection.value = '3'" tabindex="0">
+	<span>Elementos impares</span>
+	</button>
+</div>
+
+<div class="container" [ngSwitch]="selection.value">
+	<pre *ngSwitchDefault>Aquí se mostrará la cadena modificada</pre>
+	<pre *ngSwitchCase="'1'">{{inversa(cadena)}}</pre>
+	<pre *ngSwitchCase="'2'">{{pares(cadena)}}</pre>
+	<pre *ngSwitchCase="'3'">{{impares(cadena)}}</pre>
+</div>
